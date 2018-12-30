@@ -1,6 +1,6 @@
 {
   "name": "libphonenumber-js-utils",
-  "version": "8.9.9",
+  "version": "8.10.2",
   "description": "",
   "main": "dist/libphonenumber.js",
   "scripts": {
