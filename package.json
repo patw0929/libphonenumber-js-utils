@@ -4,13 +4,17 @@
   "description": "",
   "main": "dist/libphonenumber.js",
   "scripts": {
-    "test": "mocha --require ./tests/setup.js --recursive tests/suites"
+    "test": "jest"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "chai": "^4.2.0",
     "jsdom": "^13.1.0",
-    "mocha": "^5.2.0"
+    "jest": "^23.6.0"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
+    "rootDir": "test"
   }
 }
