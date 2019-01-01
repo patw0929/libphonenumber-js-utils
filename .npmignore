@@ -1,1 +1,7 @@
-test
+# ignore all
+
+*
+
+# override above and include followings
+
+!dist/**/*
