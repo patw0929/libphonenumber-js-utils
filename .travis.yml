@@ -1,10 +1,19 @@
-language: node_js
+language: java
+jdk: oraclejdk8
 cache:
   directories:
-    - node_modules
+    - closure-library
+    - closure-compiler
+    - closure-linter
+    - python-gflags
 notifications:
   email: false
-node_js:
-  - node
+before_install:
+  - nvm install node
+install:
+  - npm ci
+  - bash ./scripts/build-dependencies.sh
+  - git clone --branch v`cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['version'])"` https://github.com/googlei18n/libphonenumber/
 script:
-  - npm run test
+  - bash ./scripts/execute.sh
+  - npm test
