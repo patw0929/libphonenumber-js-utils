@@ -17,3 +17,10 @@ install:
 script:
   - bash ./scripts/execute.sh
   - npm test
+deploy:
+  provider: npm
+  email: "patw.hi+github@gmail.com"
+  api_key: $NPM_TOKEN
+  on:
+    branch: release
+    condition: $TRAVIS_BRANCH = release
