@@ -43,5 +43,5 @@ Checkout closure-library, closure-compiler, closure-linter and python-gflags nex
 3. Run the compiled demo: `javascript/i18n/phonenumbers/demo-compiled.html`
 
 # Contributors :
-[![@superhit0](https://avatars.githubusercontent.com/superhit0?size=50)](@superhit0) | [![@patw0929](https://avatars.githubusercontent.com/patw0929?size=50)](@patw0929) | [![@nutboltu](https://avatars.githubusercontent.com/nutboltu?size=50)](@nutboltu)
+[![@superhit0](https://avatars.githubusercontent.com/superhit0?size=50)](https://github.com/superhit0) | [![@patw0929](https://avatars.githubusercontent.com/patw0929?size=50)](https://github.com/patw0929) | [![@nutboltu](https://avatars.githubusercontent.com/nutboltu?size=50)](https://github.com/nutboltu)
 ----|-----|-----
