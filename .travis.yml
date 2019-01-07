@@ -17,8 +17,7 @@ install:
 script:
   - bash ./scripts/execute.sh
   - npm test
-  - echo "$(tput bold)$(tput setaf 6)Starting NPM release for version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"`"
-before_deploy: echo "Starting NPM release for version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"`"
+before_deploy: echo "$(tput bold)$(tput setaf 6)Starting NPM release for version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"`"
 deploy:
   provider: npm
   email: $NPM_EMAIL
@@ -26,4 +25,4 @@ deploy:
   on:
     branch: release
     condition: $TRAVIS_BRANCH = release
-after_deploy: echo "Completed Deployment of NPM version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"`"
+after_deploy: echo "$(tput bold)$(tput setaf 6)Completed Deployment of NPM version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"`"
