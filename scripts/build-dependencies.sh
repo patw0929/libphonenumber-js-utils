@@ -7,7 +7,7 @@ if [ ! -f ./closure-compiler/target/closure-compiler-1.0-SNAPSHOT.jar ]; then
     rm -rf closure-compiler
     git clone --branch v20181210 https://github.com/google/closure-compiler.git
     cd closure-compiler
-    mvn -DskipTests
+    mvn -DskipTests -pl externs/pom.xml,pom-main.xml,pom-main-shaded.xml
     cd ..
 fi
 
