@@ -42,6 +42,12 @@ Checkout closure-library, closure-compiler, closure-linter and python-gflags nex
 
 3. Run the compiled demo: `javascript/i18n/phonenumbers/demo-compiled.html`
 
+### Release:
+1. Raise a PR from `master` branch to `release` branch.
+2. Make sure you have updated the `version` in `package.json`.
+3. Merge the PR.
+4. The travis will release the module to `npm registry`.
+
 # Contributors :
 [![@superhit0](https://avatars.githubusercontent.com/superhit0?size=50)](https://github.com/superhit0) | [![@patw0929](https://avatars.githubusercontent.com/patw0929?size=50)](https://github.com/patw0929) | [![@nutboltu](https://avatars.githubusercontent.com/nutboltu?size=50)](https://github.com/nutboltu)
 ----|-----|-----
