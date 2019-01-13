@@ -24,6 +24,5 @@ deploy:
   api_key: $NPM_TOKEN
   skip_cleanup: true
   on:
-    branch: release
-    condition: $TRAVIS_BRANCH = release
+    tags: true
 after_deploy: echo "$(tput bold)$(tput setaf 6)Completed Deployment of NPM version - `cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['version'])"`"
