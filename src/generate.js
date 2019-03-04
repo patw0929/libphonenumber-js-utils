@@ -45,7 +45,7 @@ var doctype = `
 
 var excludedMeta = [
   'noInternationalDialling',
-  'fixedLine',
+  'leadingDigits',
   'uan',
   'tollFree',
   'premiumRate',
@@ -57,18 +57,26 @@ var excludedMeta = [
 ]
 
 module.exports = async function() {
-  var xmlPhoneNumberMetadata =
+  try {
+    var xmlPhoneNumberMetadata =
     await fs.readFileSync(path.resolve(__dirname, '../libphonenumber/resources/PhoneNumberMetadata.xml'));
-  filterxml(xmlPhoneNumberMetadata, excludedMeta, {}, async function (err, xmlOut) {
-    if (err) { throw err; }
-    const doctypeXml = xmlOut.replace('<!DOCTYPE phoneNumberMetadata>', doctype);
-    await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadata.xml'), doctypeXml);
-  });
+    filterxml(xmlPhoneNumberMetadata, excludedMeta, {}, async function (err, xmlOut) {
+      if (err) { throw err; }
+     
+      const doctypeXml = xmlOut.replace('<!DOCTYPE phoneNumberMetadata>', doctype);
+      await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadata.xml'), doctypeXml);
+      console.log('Successfull generate metadata!');
+    });
 
-  var xmlPhoneNumberMetadataForTesting =
+    var xmlPhoneNumberMetadataForTesting =
     await fs.readFileSync(path.resolve(__dirname, '../libphonenumber/resources/PhoneNumberMetadataForTesting.xml'));
-  filterxml(xmlPhoneNumberMetadataForTesting, excludedMeta, {}, async function (err, xmlOut) {
-    if (err) { throw err; }
-    await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadataForTesting.xml'), xmlOut);
-  });
+    filterxml(xmlPhoneNumberMetadataForTesting, excludedMeta, {}, async function (err, xmlOut) {
+      if (err) { throw err; }
+      await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadataForTesting.xml'), xmlOut);
+      console.log('Successfull generate metadatafortesting!');
+    });
+  } catch(error) {
+    console.error('Failed to generate meatadata' + error);
+  }
+  
 }();
