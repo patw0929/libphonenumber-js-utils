@@ -1,3 +1,8 @@
+if [ ! -d ./libphonenumber/.git ]; then
+    rm -rf libphonenumber
+    git clone --branch v8.10.6 https://github.com/googlei18n/libphonenumber/
+fi
+
 if [ ! -d ./closure-library/.git ]; then
     rm -rf closure-library
     git clone --branch v20180910 https://github.com/google/closure-library/

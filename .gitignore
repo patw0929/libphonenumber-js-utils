@@ -36,3 +36,15 @@ npm-debug.log
 yarn-error.log
 
 coverage
+
+
+# Ignore cloned files
+closure-compiler/
+closure-library/
+closure-linter/
+libphonenumber/
+
+#generated files
+dist/
+src/PhoneNumberMetadata.xml
+src/PhoneNumberMetadataForTesting.xml
