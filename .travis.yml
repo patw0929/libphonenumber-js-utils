@@ -13,7 +13,6 @@ before_install:
 install:
   - npm ci
   - bash ./scripts/build-dependencies.sh
-  - git clone --branch v`cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"` https://github.com/googlei18n/libphonenumber/
 script:
   - bash ./scripts/execute.sh
   - npm test
