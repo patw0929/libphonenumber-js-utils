@@ -1,6 +1,6 @@
-var filterxml = require('filterxml');
-var path = require('path');
 var fs = require('fs');
+var path = require('path');
+var filterxml = require('filterxml');
 
 var doctype = `
 <!DOCTYPE phoneNumberMetadata [
@@ -63,7 +63,7 @@ module.exports = async function() {
      
       const doctypeXml = xmlOut.replace('<!DOCTYPE phoneNumberMetadata>', doctype);
       await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadata.xml'), doctypeXml);
-      console.log('Successfully generated metadata!');
+      console.log('Metadata generated successfully!');
     });
 
     var xmlPhoneNumberMetadataForTesting =
@@ -71,7 +71,7 @@ module.exports = async function() {
     filterxml(xmlPhoneNumberMetadataForTesting, excludedMeta, {}, async function (err, xmlOut) {
       if (err) { throw err; }
       await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadataForTesting.xml'), xmlOut);
-      console.log('Successfully generated metadatafortesting!');
+      console.log('Metadatafortesting generated Successfully!');
     });
   } catch(error) {
     console.error('Failed to generate meatadata' + error);

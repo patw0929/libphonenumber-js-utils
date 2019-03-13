@@ -9,12 +9,14 @@
   },
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "filterxml": "^1.1.4",
+    "node-minify": "^3.6.0"
+  },
   "devDependencies": {
     "chai": "^4.2.0",
-    "filterxml": "^1.1.4",
     "jest": "^23.6.0",
-    "jsdom": "^13.1.0",
-    "node-minify": "^3.6.0"
+    "jsdom": "^13.1.0"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
