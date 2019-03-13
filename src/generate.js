@@ -6,7 +6,7 @@ var doctype = `
 <!DOCTYPE phoneNumberMetadata [
   <!ELEMENT phoneNumberMetadata (territories)>
   <!ELEMENT territories (territory+)>
-  <!ELEMENT territory (references?, availableFormats?, generalDesc, noInternationalDialling?, mobile?)>
+  <!ELEMENT territory (references?, availableFormats?, generalDesc, mobile?)>
   <!ELEMENT references (sourceUrl+)>
   <!ELEMENT generalDesc (nationalNumberPattern)>
   <!ELEMENT mobile (possibleLengths, exampleNumber, nationalNumberPattern)>
@@ -17,13 +17,11 @@ var doctype = `
   <!ELEMENT numberFormat (leadingDigits*, format, intlFormat*)>
   <!ELEMENT format (#PCDATA)>
   <!ELEMENT intlFormat (#PCDATA)>
-  <!ELEMENT leadingDigits (#PCDATA)>
   <!ELEMENT possibleLengths EMPTY>
 
   <!ATTLIST territory id CDATA #REQUIRED>
   <!ATTLIST territory countryCode CDATA #REQUIRED>
   <!ATTLIST territory mainCountryForCode (true) #IMPLIED>
-  <!ATTLIST territory leadingDigits CDATA #IMPLIED>
   <!ATTLIST territory preferredInternationalPrefix CDATA #IMPLIED>
   <!ATTLIST territory internationalPrefix CDATA #IMPLIED>
   <!ATTLIST territory nationalPrefix CDATA #IMPLIED>
@@ -44,16 +42,16 @@ var doctype = `
 `;
 
 var excludedMeta = [
-  'noInternationalDialling',
   'leadingDigits',
-  'uan',
-  'tollFree',
+  'noInternationalDialling',
+  'pager',
+  'personalNumber',
   'premiumRate',
   'sharedCost',
-  'voip',
-  'personalNumber',
-  'pager',
-  'voicemail'
+  'tollFree',
+  'uan',
+  'voicemail',
+  'voip', 
 ]
 
 module.exports = async function() {
@@ -65,7 +63,7 @@ module.exports = async function() {
      
       const doctypeXml = xmlOut.replace('<!DOCTYPE phoneNumberMetadata>', doctype);
       await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadata.xml'), doctypeXml);
-      console.log('Successfull generate metadata!');
+      console.log('Successfully generated metadata!');
     });
 
     var xmlPhoneNumberMetadataForTesting =
@@ -73,7 +71,7 @@ module.exports = async function() {
     filterxml(xmlPhoneNumberMetadataForTesting, excludedMeta, {}, async function (err, xmlOut) {
       if (err) { throw err; }
       await fs.writeFileSync(path.resolve(__dirname, './PhoneNumberMetadataForTesting.xml'), xmlOut);
-      console.log('Successfull generate metadatafortesting!');
+      console.log('Successfully generated metadatafortesting!');
     });
   } catch(error) {
     console.error('Failed to generate meatadata' + error);
