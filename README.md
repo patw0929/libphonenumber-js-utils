@@ -29,6 +29,13 @@ validationError | Enum | **Possible Values:**<br>&bull; `IS_POSSIBLE` <br>&bull;
 
 ### Install Dependencies
 
+Install `maven` and `ant`. For MacOS
+
+```sh
+brew install ant
+brew install maven
+```
+
 ```sh
 sh scripts/build-dependencies.sh
 ```
