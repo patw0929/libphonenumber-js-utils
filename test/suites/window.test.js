@@ -36,12 +36,6 @@ describe('Window Tests', () => {
     assert.typeOf(getNumberType, 'function', 'getNumberType should be a function');
   });
 
-  it('Should have getValidationError in intlTelInputUtils Object which should be a function', () => {
-    const { getValidationError } = intlTelInputUtils;
-    assert.exists(getValidationError, 'getValidationError should exist in intlTelInputUtils object');
-    assert.typeOf(getValidationError, 'function', 'getValidationError should be a function');
-  });
-
   it('Should have isValidNumber in intlTelInputUtils Object which should be a function', () => {
     const { isValidNumber } = intlTelInputUtils;
     assert.exists(isValidNumber, 'isValidNumber should exist in intlTelInputUtils object');

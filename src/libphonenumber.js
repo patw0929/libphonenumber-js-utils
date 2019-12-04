@@ -57,36 +57,6 @@ function getNumberType(number, countryCode) {
   }
 }
 
-
-// get more info if the validation has failed e.g. too long/too short
-function getValidationError(number, countryCode) {
-  try {
-    var phoneUtil = i18n.phonenumbers.PhoneNumberUtil.getInstance();
-    var numberObj = phoneUtil.parseAndKeepRawInput(number, countryCode);
-    return phoneUtil.isPossibleNumberWithReason(numberObj);
-  } catch (e) {
-    //console.log(e);
-
-    // here I convert thrown errors into ValidationResult enums (if possible)
-    if (e.message == i18n.phonenumbers.Error.INVALID_COUNTRY_CODE) {
-      return i18n.phonenumbers.PhoneNumberUtil.ValidationResult.INVALID_COUNTRY_CODE;
-    }
-    if (e.message == i18n.phonenumbers.Error.NOT_A_NUMBER) {
-      return 4;
-    }
-    if (e.message == i18n.phonenumbers.Error.TOO_SHORT_AFTER_IDD || e == i18n.phonenumbers.Error.TOO_SHORT_NSN) {
-      return i18n.phonenumbers.PhoneNumberUtil.ValidationResult.TOO_SHORT;
-    }
-    if (e.message == i18n.phonenumbers.Error.TOO_LONG) {
-      return i18n.phonenumbers.PhoneNumberUtil.ValidationResult.TOO_LONG;
-    }
-
-    // broken
-    return -99;
-  }
-}
-
-
 // check if given number is valid
 function isValidNumber(number, countryCode) {
   try {
@@ -159,7 +129,6 @@ goog.exportSymbol('intlTelInputUtils.formatNumber', formatNumber);
 goog.exportSymbol('intlTelInputUtils.getExampleNumber', getExampleNumber);
 goog.exportSymbol('intlTelInputUtils.getExtension', getExtension);
 goog.exportSymbol('intlTelInputUtils.getNumberType', getNumberType);
-goog.exportSymbol('intlTelInputUtils.getValidationError', getValidationError);
 goog.exportSymbol('intlTelInputUtils.isValidNumber', isValidNumber);
 // enums
 goog.exportSymbol('intlTelInputUtils.numberFormat', numberFormat);

@@ -1,3 +1,6 @@
+rm -rf libphonenumber
+git clone --branch v`cat package.json | python -c "import sys, json; print(json.load(sys.stdin)['googleLibphonenumberVersion'])"` https://github.com/googlei18n/libphonenumber/
+
 if [ ! -d ./closure-library/.git ]; then
     rm -rf closure-library
     git clone --branch v20180910 https://github.com/google/closure-library/
@@ -14,9 +17,4 @@ fi
 if [ ! -d ./closure-linter/.git ]; then
     rm -rf closure-linter
     git clone --branch v2.3.19 https://github.com/google/closure-linter.git
-fi
-
-if [ ! -d ./python-gflags/.git ]; then
-    rm -rf python-gflags
-    git clone --branch 3.1.2 https://github.com/google/python-gflags.git
 fi
