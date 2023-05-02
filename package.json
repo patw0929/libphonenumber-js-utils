@@ -1,7 +1,7 @@
 {
   "name": "libphonenumber-js-utils",
-  "version": "8.10.5",
-  "googleLibphonenumberVersion": "8.10.5",
+  "version": "8.13.11",
+  "googleLibphonenumberVersion": "8.13.11",
   "description": "",
   "main": "dist/libphonenumber.js",
   "scripts": {
