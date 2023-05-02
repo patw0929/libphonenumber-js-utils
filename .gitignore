@@ -45,6 +45,5 @@ closure-linter/
 libphonenumber/
 
 #generated files
-dist/
 src/PhoneNumberMetadata.xml
 src/PhoneNumberMetadataForTesting.xml
