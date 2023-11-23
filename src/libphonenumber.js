@@ -1,4 +1,5 @@
 // includes
+goog.provide('i18n.phonenumbers.demo');
 goog.require('i18n.phonenumbers.PhoneNumberFormat');
 goog.require('i18n.phonenumbers.PhoneNumberUtil');
 
